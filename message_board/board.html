@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>留言板</title>
+    <!-- Bootstrap -->
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="js/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="Font-Awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/build.css"/>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+
+    <link rel="stylesheet" href="board.css" type="text/css">
+
+    <script>
+        let is_checkbox_display = false;
+        let todo_list = {};
+
+        $(".close").click(function () {
+            $(".alert-dismissable").hide();
+        });
+
+        function add_item(title, content) {
+            if (!todo_list[title]) {
+                todo_list[title] = content;
+                return true;
+            }
+            return false;
+        }
+
+        function delete_item(title) {
+            if (todo_list[title] == null)
+                return false;
+            delete todo_list[title];
+            deleteCookie(title); //UPDATE 删除cookie
+            return true;
+        }
+
+        function edit_item(old_title, new_title, content) {
+            if (old_title === new_title) { //原标题等于新标题，直接改动内容即可
+                todo_list[new_title] = content;
+                return true;
+            } else { //如果标题都变了，需要判断新标题有没有冲突
+                if (todo_list[new_title])
+                    return false;
+                delete todo_list[old_title];
+                todo_list[new_title] = content;
+                return true; //FIXME
+            }
+        }
+
+        let picks = 0;
+
+        function create_checkbox(title) {
+            //<input type="checkbox" class="todo-list-item-checkbox" name="selected-items" value="test" style="margin-right: 5px;"/>
+            let node_div = document.createElement("div");
+            node_div.setAttribute("class", "checkbox checkbox-primary");
+            let node_input = document.createElement("input");
+            node_input.setAttribute("type", "checkbox");
+            node_input.setAttribute("id", "checkbox" + picks);
+            let node_label = document.createElement("label");
+            node_label.setAttribute("for", "checkbox" + (picks++));
+            if (is_checkbox_display === false)
+                node_label.setAttribute("style", "display:none");
+            let node_span = document.createElement("span");
+            let node_text = document.createTextNode(title.toString());
+            node_div.appendChild(node_input);
+            node_div.appendChild(node_label);
+            node_div.appendChild(node_span).appendChild(node_text);
+            return node_div;
+
+        }
+
+        function add_item_to_left_nav(title, content) {
+            /**
+             <li><a href="#">
+             <div class="checkbox checkbox-primary" >
+             <input type="checkbox" id="checkbox1" >
+             <label for="checkbox1">
+             </label>
+             <span>This is a test</span>
+             </div>
+             </a></li>
+             *
+             * */
+            let todo_list_ul = document.getElementById("nav-todo-list");
+            let one_item = document.createElement("li"); //创建一个li节点
+            let one_item_a = document.createElement("a"); //创建一个a节点
+            one_item_a.setAttribute("href", "javascript:void(0);"); //a节点赋予href属性
+            one_item_a.setAttribute("onclick", "item_click_handler(\"" + title + "\")"); //a节点赋予onclick属性
+            one_item_a.appendChild(create_checkbox(title));
+            one_item.appendChild(one_item_a);
+            todo_list_ul.appendChild(one_item);
+        }
+
+        /**
+         * 删除左边导航栏中的标题
+         * */
+        function delete_item_from_left_nav(title) {
+            let will_be_removed_node = find_li_eq_title(title);
+            $(will_be_removed_node).slideUp("slow", function () {
+                $(this).remove();
+            });
+            add_button_click_handler(); //直接调用开始按钮处理函数，默认重新进去了创建页面
+        }
+
+        /**
+         * 修改左边导航栏中的标题
+         * */
+        function edit_item_from_left_nav(old_title, new_title, content) {
+            let todo_list = document.getElementsByClassName("checkbox-primary");
+            //寻找对应额元素
+            for (let i = 0; i < todo_list.length; i++) { //FIXME:用for in真的不行
+                try {
+                    let node_span = todo_list[i].getElementsByTagName("span")[0];
+                    if (node_span.innerText === old_title) {
+                        node_span.innerText = new_title;
+                        //找到父亲节点a，改变它的href属性，因为标题变了，函数的实参需要变动
+                        todo_list[i].parentElement.setAttribute("onclick", "item_click_handler(\"" + new_title + "\")");
+                    }
+                }
+                catch (e) { //FOR A TESTr
+                    console.log(e);
+                    console.log(i);
+                }
+            }
+
+        }
+
+        /**
+         * 点击左边某个项目时所调用的处理函数
+         * */
+        function item_click_handler(title) {
+            /**
+             * 可以使用jQuery改进
+             * */
+            activate_selected_item(title);
+
+            let content = todo_list[title.toString()];
+            document.getElementById('title').value = title;
+            document.getElementById('content').value = content;
+
+            //改变添加/修改按钮的文本和参数指向
+            let submit_button = document.getElementById('context-btn-submit');
+            submit_button.innerText = "修改";
+            submit_button.className = "btn btn-info";
+            submit_button.setAttribute("onclick", "submit_edit_item(\"" + title.toString() + "\");");
+
+            //改变删除按钮的参数指向
+            let delete_button = document.getElementById("context-btn-delete");
+            delete_button.setAttribute("onclick", "submit_delete_item(\"" + title.toString() + "\");");
+        }
+
+        function add_button_click_handler() {
+            activate_selected_item(null); //高亮添加按钮
+
+            $("#title").val("");
+            $("#content").val("");
+            $("#context-btn-delete").attr("onclick", "return false;"); //删除按钮的指向要及时改变
+            let btn = $("#context-btn-submit");
+            btn.text("添加");
+            if (btn.hasClass("btn-info")) {
+                btn.removeClass("btn-info").addClass("btn-default");
+            }
+            btn.attr("onclick", "submit_add_item()");
+
+        }
+
+        /**
+         * 高亮选中的项
+         * @param title 如果title为null，高亮添加按钮
+         * */
+        function activate_selected_item(title) {
+            $("li").removeClass("active"); //首先要去掉全部的高亮
+            if (!title)
+                $("li:contains('新的日程...')").addClass("active");
+            else {
+                let li_item = find_li_eq_title(title);
+                $(li_item).addClass("active")
+            }
+        }
+
+        /**
+         * 寻找对应title的li项
+         *  @details 使用JQ选择器这个大杀器
+         * */
+        function find_li_eq_title(title) {
+            return $("#nav-todo-list li:contains(\'" + title + "\')").map(function () {
+                if ($(this).text() === title) {
+                    return this;
+                }
+            })[0];
+        }
+
+        function submit_add_item() {
+            let title = document.getElementById('title').value;
+            let content = document.getElementById('content').value;
+            if (add_item(title, content)) {
+                add_item_to_left_nav(title, content);
+                //$(".add-success-alert").fadeIn(); // 弹出成功提示
+                show_success_alert();
+                // 创建完成后，清掉form里面所有的内容
+                $("#title").val("");
+                $("#content").val("");
+            }
+            else
+                show_add_failed_alert(); //如果添加失败，意味着有重复的title，给出警告
+        }
+
+        function show_success_alert() {
+            $(".add-success-alert").slideDown("slow", function () {
+                window.setTimeout(function () {
+                    $(".add-success-alert").slideUp();
+                }, 1000);
+            });
+        }
+
+        function show_edit_success_alert() {
+            $(".edit-success-alert").slideDown("slow", function () {
+                window.setTimeout(function () {
+                    $(".edit-success-alert").slideUp();
+                }, 1000);
+            });
+        }
+
+        function show_add_failed_alert() {
+            $(".add-failed-alert").slideDown("slow", function () {
+                window.setTimeout(function () {
+                    $(".add-failed-alert").slideUp();
+                }, 1000);
+            })
+        }
+
+        /**
+         * 修改项目外部调用函数
+         * @param old_title 旧标题，这就需要一开始就要确定好实参
+         * */
+        function submit_edit_item(old_title) {
+            let new_title = document.getElementById('title').value;
+            let content = document.getElementById('content').value;
+            if (edit_item(old_title, new_title, content)) {
+                show_edit_success_alert();
+                edit_item_from_left_nav(old_title, new_title, content);
+            }
+        }
+
+        /**
+         * 删除单个项目所用的外部调用函数
+         * @param title 将要删除的标题
+         * */
+        function submit_delete_item(title) {
+            if (delete_item(title)) //先删除变量
+                delete_item_from_left_nav(title); //再删除左侧导航栏中的内容
+        }
+
+        let show_checkboxes = function () {
+            //console.log($(".checkbox-primary label").css("display"));
+            /*if ($(".checkbox-primary label").css("display") === "inline-block")
+                $(".checkbox-primary label").css("display", "none");
+            else
+                $(".checkbox-primary label").css("display", "inline-block");*/
+            $(".checkbox-primary label").fadeToggle();
+            $("#button-group-outer").fadeToggle(); //NEW：多选项功能
+            is_checkbox_display = !is_checkbox_display; //更改标志位，避免新建项目的时候复选框会异常出现
+        };
+
+        /**
+         * 全选所有的选项
+         * */
+        function make_all_items_all_checked() {
+            let all_checkbox = $("#nav-todo-list input:checkbox");
+            all_checkbox.prop("checked", !all_checkbox[0].checked);
+        }
+
+        /**
+         * 删除所选的内容
+         * */
+        function delete_selected_items() {
+            let all_checked_checkbox = $("#nav-todo-list input:checkbox:checked").siblings("span"); //获取选定的复选框对应的title，属于兄弟节点
+            for (let i = 0; i < all_checked_checkbox.length; i++) {
+                let item_title = all_checked_checkbox[i].innerText; //获取span里面的文字，就是标题了
+                //console.log(item_title);
+                submit_delete_item(item_title); //传进标题，进行删除
+            }
+        }
+
+        function delete_all_items() {
+            //删除所有元素直接遍历todo_list对象即可
+            for (let item in todo_list) {
+                submit_delete_item(item); //传进标题，进行删除
+            }
+        }
+
+        function former_item(curr_item, items) {
+            for (let i = 0; i < items.length; i++) {
+                if (items[i] === curr_item) {
+                    if (i >= 1)
+                        return items[i - 1];
+                    return null;
+                }
+            }
+        }
+
+        function next_item(curr_item, items) {
+            for (let i = 0; i < items.length; i++) {
+                if (items[i] === curr_item) {
+                    if (i < items.length - 1)
+                        return items[i + 1];
+                    return null;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../img/zhanjiang-logo.png" style="height: 110%"/>
+            </a></div>
+        <div>
+            <p class="navbar-text site-title" style="font-weight: 600">留言板</p>
+        </div>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#navbar-collapse"><span class="sr-only">切换导航</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="javascript:void(0)" onclick="add_button_click_handler();"><span
+                        class="glyphicon glyphicon-plus"></span> 添加留言</a></li>
+                <li><a href="javascript:void(0);" onclick="show_checkboxes()"><span
+                        class="glyphicon glyphicon-th-list"></span> 多选留言</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="centre-container">
+    <div class="row">
+        <div class="col-md-2 left_container visible-lg" tabindex="0">
+            <p>留言板</p>
+            <form class="todo-list-form">
+                <ul class="nav nav-pills nav-stacked" id="nav-todo-list">
+                    <li><a href="javascript:void(0)" onclick="add_button_click_handler()">
+                        <span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;新的留言...
+                    </a></li>
+                    <!--
+                    <li><a href="#">
+                        <div class="checkbox checkbox-primary">
+                            <input type="checkbox" id="checkbox1">
+                            <label for="checkbox1" style="display: none;">
+                            </label>
+                            <span>aaa</span>
+                        </div>
+                    </a></li>
+                    -->
+                </ul>
+            </form>
+            <div id="button-group-outer" style="display: none">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default" onclick="make_all_items_all_checked()"><span
+                            class="glyphicon glyphicon-list"></span>全选
+                    </button>
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-remove"></span>删除
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)" onclick="delete_selected_items()">删除所选</a></li>
+                        <li><a href="javascript:void(0)" onclick="delete_all_items()">删除全部</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 left_container_f visible-lg"></div>
+        <div class="col-md-10 right_container">
+            <div class="right-container">
+                <div class="alert alert-success alert-dismissable add-success-alert" style="display: none;">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    您已经成功添加一个留言!
+                </div>
+                <div class="alert alert-info alert-dismissable edit-success-alert" style="display: none;">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    你已经修改了一个留言!
+                </div>
+                <div class="alert alert-danger alert-dismissable add-failed-alert" style="display: none;">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    对不起，你不能创建标题一样的留言！
+                </div>
+                <form class="form-horizontal" role="form" target="the_iframe" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="title" class="col-sm-1 control-label">标题</label>
+                        <div class="col-sm-11">
+                            <input type="text" class="form-control" id="title" placeholder="请输入标题" name="title"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content" class="col-sm-1 control-label">详细内容</label>
+                        <div class="col-sm-11">
+                            <textarea class="form-control" id="content" placeholder="输入详细内容..." rows="4"
+                                      name="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-10 col-sm-2 button-group">
+                            <button class="btn btn-default" id="context-btn-submit"
+                                    onclick="submit_add_item()">提交
+                            </button>
+                            <button class="btn btn-danger" id="context-btn-delete" onclick="return false">
+                                删除
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <iframe id="is_iframe" name="the_iframe" style="display:none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".left_container").keydown(function (e) {
+        let items = []; //储存所有的项
+        let tmp = $(".checkbox span");
+        for (let i = 0; i < tmp.length; i++) {
+            items.push(tmp[i].innerText);
+        }
+
+        if (e.keyCode === 38) {
+            let curr_active_item_title = $("li.active span")[0].innerText;
+            let foritem = former_item(curr_active_item_title, items);
+            if (foritem !== null)
+                item_click_handler(foritem);
+        }
+        else if (e.keyCode === 40) {
+            let curr_active_item_title = $("li.active span")[0].innerText;
+            let nxtitem = next_item(curr_active_item_title, items);
+            if (nxtitem !== null)
+                item_click_handler(nxtitem);
+        }
+        else if (e.keyCode === 13) { //按回车实现选择
+            let curr_checkbox = $("li.active input:checkbox");
+            curr_checkbox.prop("checked", !curr_checkbox[0].checked);
+            return false; //FIXME ?
+        }
+    });
+
+    /**
+     * 设置cookie
+     * @param {string} name  键名
+     * @param {string} value 键值
+     * @param {integer} days cookie周期
+     */
+    function setCookie(name, value, days) {
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toGMTString();
+        } else {
+            var expires = "";
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    // 删除cookie
+    function deleteCookie(name) {
+        setCookie("DIARY_" + name, "", -1);
+    }
+
+    setCookie("test", "test", 3);
+    if (document.cookie.indexOf("test=test") === -1) {
+        alert("浏览器不支持本地cookie! 警告！");
+    }
+    deleteCookie("test");
+
+    let create_cookie = function () {
+        for (let i in todo_list) {
+            setCookie("DIARY_" + i, todo_list[i], 2);
+        }
+    };
+
+    let get_self_cookie = function () {
+        let ca = document.cookie.split(';');
+        let res = [];
+        for (let i = 0; i < ca.length; i++) {
+            if (ca[i].startsWith(" DIARY") === true) {
+                let tmp = ca[i].substring(7);
+                res.push(tmp);
+            }
+        }
+        return res;
+    };
+
+    /**
+     * 从cookie中恢复TODO列表
+     * */
+    let resume_todo_list = function (not_split_lst) {
+        for (let i = 0; i < not_split_lst.length; i++) {
+            let tmp = not_split_lst[i].split('=');
+            let title = tmp[0];
+            let content = tmp[1];
+            todo_list[title] = content;
+            add_item_to_left_nav(title, content); //添加到左边的栏中
+        }
+    };
+
+    window.onbeforeunload = function (event) {
+        create_cookie();
+    };
+
+    window.onload = function (event) {
+        let not_split_lst = get_self_cookie();
+        resume_todo_list(not_split_lst);
+    };
+
+
+</script>
+</body>
+</html>

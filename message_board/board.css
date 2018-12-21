@@ -1,0 +1,72 @@
+.centre-container {
+    margin-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#context-btn-delete {
+    margin-left: 10px;
+}
+
+.button-group {
+    text-align: right;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.checkbox span {
+    font-size: 17px;
+    font-weight: 400;
+    margin-left: 0;
+}
+
+.checkbox label {
+    margin-right: 10px;
+}
+
+/*取消上下间隔*/
+.checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#button-group-outer {
+    margin-top: 20px;
+    text-align: center; //按钮组对齐——果然套一层就是好
+}
+
+.glyphicon {
+    margin-right: 5px;
+}
+
+.left_container {
+    background-color: white;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    padding-top: 20px;
+    border-right: #adadad 1px solid;
+    opacity: 0.9;
+}
+
+body {
+    background-image: url("img/bg.jpg");
+    background-position-x: 30%;
+    background-position-y: 15%;
+}
+
+.right-container textarea{
+    opacity: 0.8;
+}
+
+.right-container input{
+    opacity: 0.8;
+}
+
+nav {
+    opacity: 0.8;
+    background-color: blue;
+}

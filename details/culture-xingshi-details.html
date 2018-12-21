@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>湛江人文——详情页</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.toTop.min.js"></script>
+
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+
+    <script src="../js/bootstrap.min.js"></script>
+    <!--手风琴效果-->
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+    <link href="../css/details.css" type="text/css" rel="stylesheet"/>
+
+    <style>
+        .site-title {
+            font-weight: 600;
+            color: #FFF;
+            margin-left: 0;
+            font-size: 16px;
+        }
+    </style>
+
+    <!---模态框专用-->
+    <script src="../js/remodal.js"></script>
+    <link rel="stylesheet" href="../css/remodal.css">
+    <link rel="stylesheet" href="../css/remodal-default-theme.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="../img/zhanjiang-logo.png"/>
+            </a>
+        </div>
+        <div>
+            <p class="navbar-text site-title">详情页</p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="shenghao-details.html">美食</a></li>
+                <li><a href="sight-haiwandaqiao-details.html">风光</a></li>
+                <li class="active"><a href="#">文化</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-login"><a href="../login/login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                <li class="dropdown navbar-user" style="display: none">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="navbar-user-info">欢迎您</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><p class="navbar-text navbar-user-email">aaa</p></li>
+                        <li class="divider"></li>
+                        <li><a href="../login/login.html">重新登录</a></li>
+                        <li><a href="javascript:void(0)" onclick="cancelUser();">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="navbar-text navbar-right navbar-weather" style="margin-right: 10px"><span class="weather-city">获取天气中...</span><span>&nbsp;&nbsp;</span><span class="weather-text"></span><span>&nbsp;&nbsp;</span><span class="weather-temperature"></span></p>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 left-container">
+            <h3>湛江人文</h3>
+            <p>没有记忆的城市是肤浅的。</p>
+            <p>在老街漫步，斑驳的印记总在不经意间流露出来，有一种沧桑气质是由岁月所锻造出来的。</p>
+            <p>不妨绕开人群，走进有些僻静的小街里弄，发现繁华城市背后的老骑楼、老字号、古码头、青石路、手艺人的故事……</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="culture-renlongwu-details.html">东海岛人龙舞</a></li>
+                <li><a href="culture-tanwu-details.html">湛江傩舞</a></li>
+                <li><a href="culture-piaose-details.html">吴川飘色</a></li>
+                <li class="active"><a href="#">遂溪醒狮</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-9 col-md-9 right-container">
+            <div class="page-header">
+                <h1> 遂溪醒狮
+                    <small style="font-size: 50%; margin-left: 20px">威猛灵巧，源远流长</small>
+
+                    <div class="site-title-buttons">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="window.open('https://www.iqiyi.com/w_19rv2yv1g9.html')">
+                            <span class="glyphicon glyphicon-map-marker"></span> 视频展示
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="window.open('https://baike.baidu.com/item/%E9%81%82%E6%BA%AA%E9%86%92%E7%8B%AE/8850494')">
+                            <span class="glyphicon glyphicon-book"></span> 百度百科
+                        </button>
+                    </div>
+                </h1>
+            </div>
+            <div class="details">
+                <div class="sight-img-show">
+                    <div class="options">
+                        <div class="option active" style="--optionBackground:url(../img/details/sxxs1.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/sxxs2.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/sxxs3.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/sxxs4.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/sxxs5.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    舞狮是一门集武术、舞蹈、锣鼓于一体的综合性艺术，在中国民间中国，舞狮文化源远流长。而说到醒狮文化，我们不得不提被誉评为“中国醒狮之乡”的广东遂溪县。
+                </p>
+                <img src="../img/details/sxxs6.jpeg"/>
+                <p>
+                    遂溪县隶属于广东湛江市，位于位于广东省西南部的雷州半岛上，西临北部湾，东临湛江港湾。遂溪县民间醒狮表演活动源远流长，历史悠久，早从明、清开始，就形成了舞狮习俗，并经历了起源于民间而生、植根于民间而荣、传承于现代而兴的发展过程。2003年12月遂溪县被中国民间文艺协会命名为中国醒狮之乡。
+                </p>
+                <p>
+                    遂溪醒狮不仅继承南狮风格特点，同时还融合了武术、舞蹈、音乐、杂技、美术、文学于一体，是优秀的传统艺术文化。遂溪醒狮表演风格有单狮、双狮、多狮，有地狮、高桩狮(梅花桩舞狮)等。表演套路也十分的丰富，技艺高超，动作惊险，形神兼备。不仅能体现狮子的霸气、威武、勇猛狂傲的性格，同时也能把醒狮的神韵、气质艺术化地展现出来，是湛江地区最具独特风格的醒狮表演。特别遂溪醒狮中的高桩狮表演更是以其独特的“新、高、难、险”的特技被载入上海吉尼斯世界纪录。多支遂溪醒狮团也在全国舞狮大赛上获得各项奖项荣誉。
+                </p>
+                <img src="../img/details/sxxs7.jpeg"/>
+                <p>
+                    近年来，遂溪醒狮得到了极大的发展，目前该县境内拥有的醒狮图(舞狮团)已接近300个，包括有男子醒狮队、女子舞狮队在内的表演人员达一万多人，是实实在在的“中国醒狮之乡”。
+                </p>
+                <p>
+                    强大的舞狮人口也造就了遂溪醒狮独特魅力的醒狮文化，“遂溪醒狮艺术节”就是其中的精髓，每年的遂溪醒狮艺术节都能吸引全球各地的游客来观看。
+                </p>
+                <img src="../img/details/sxxs8.jpeg"/>
+                <p>
+                    此外，遂溪醒狮还于2006年6月2日入选首批国家级非物质文化遗产名录，成为了国家级非物质文化遗产。在2008年北京奥运会上，遂溪醒狮还代表中国传统文化表演并作为特约嘉宾出席了开模式并进行了表演。目前，遂溪醒狮每年还代表中国出访世界各国，备受世人尊重与好评。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p><a href="../welcome.html">欢迎页</a> | <a href="../index.html">介绍页</a> | <a href="../message_board/board.html">留言板</a></p>
+    <p><a href="https://github.com/JezaChen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://jeza-chen.com/" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a></p>
+    <p>JZX. 2018. All rights reserved.</p>
+</div>
+<a class="to-top">返回顶部</a>
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        var n = 0;
+        var myLi = $('#picLists').find('li');
+        for (var i = 0; i < myLi.length; i++) {
+            myLi.eq(i).css({left: i * 200 + 'px'});
+        }
+        myLi.hover(function () {
+            var liIndex = $(this).index();
+            for (var j = 1; j <= liIndex; j++) {
+                myLi.eq(j).stop().animate({left: j * 100 + 'px'}, 300);
+            }
+            for (var j = liIndex + 1; j < myLi.length; j++) {
+                myLi.eq(j).stop().animate({left: 500 + j * 100 + 'px'}, 300);
+            }
+        }, function () {
+            for (var i = 0; i < myLi.length; i++) {
+                myLi.eq(i).stop().animate({left: i * 200 + 'px'}, 300);
+            }
+        });
+    });
+
+    $('.to-top').toTop();
+</script>
+
+<script src="../js/sight-details.js"></script>
+<script type="text/javascript">
+    var map_modal;
+
+    //百度地图API功能
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=QGlN1PQ2LsOg0Vd5ZKEGbWAc15dNUPdV&callback=init";
+        document.body.appendChild(script);
+    }
+
+    function init() {
+        map_modal = new BMap.Map("allmap-modal");            // 创建Map实例
+        var mark_point = new BMap.Point(110.431274, 21.256722); // 创建点坐标
+        var point = new BMap.Point(110.431274 - 0.025, 21.256722 + 0.012);
+        map_modal.centerAndZoom(point, 15);
+        map_modal.disableScrollWheelZoom();  //禁用滚轮放大缩小
+
+        let marker = new BMap.Marker(mark_point); //创建标注
+        map_modal.addOverlay(marker); //将标注添加到地图上
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动
+    }
+
+    window.onload = loadJScript;  //异步加载地图
+</script>
+<!---天气js-->
+<script src="../js/weather.js"></script>
+<!---用户登录模块-->
+<script src="../js/cookie.js"> </script>
+<script>
+    /***
+     *@brief 页面加载时用于读取cookie读取账号信息
+     * */
+    function checkUser() {
+        let userinfo;
+        if ((userinfo = getUser()) != null) {
+            $('.navbar-user-email').text(userinfo[0]);
+            $('.navbar-user-info').text("欢迎您，" + userinfo[1]);
+            $('.navbar-user').show();
+            $('.navbar-login').hide(); //登录按钮隐去
+        }
+    }
+    checkUser();
+
+    /***
+     * @brief 注销账号
+     * */
+    function cancelUser() {
+        login("", ""); //直接赋空cookie即可
+        $('.navbar-user').hide();
+        $('.navbar-login').show();
+    }
+</script>
+</html>

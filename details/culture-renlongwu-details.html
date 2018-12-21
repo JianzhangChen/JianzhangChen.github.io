@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>湛江人文——详情页</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.toTop.min.js"></script>
+
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+
+    <script src="../js/bootstrap.min.js"></script>
+    <!--手风琴效果-->
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+    <link href="../css/details.css" type="text/css" rel="stylesheet"/>
+
+    <style>
+        .site-title {
+            font-weight: 600;
+            color: #FFF;
+            margin-left: 0;
+            font-size: 16px;
+        }
+    </style>
+
+    <!---模态框专用-->
+    <script src="../js/remodal.js"></script>
+    <link rel="stylesheet" href="../css/remodal.css">
+    <link rel="stylesheet" href="../css/remodal-default-theme.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="../img/zhanjiang-logo.png"/>
+            </a>
+        </div>
+        <div>
+            <p class="navbar-text site-title">详情页</p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="shenghao-details.html">美食</a></li>
+                <li><a href="sight-haiwandaqiao-details.html">风光</a></li>
+                <li class="active"><a href="#">文化</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-login"><a href="../login/login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                <li class="dropdown navbar-user" style="display: none">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="navbar-user-info">欢迎您</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><p class="navbar-text navbar-user-email">aaa</p></li>
+                        <li class="divider"></li>
+                        <li><a href="../login/login.html">重新登录</a></li>
+                        <li><a href="javascript:void(0)" onclick="cancelUser();">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="navbar-text navbar-right navbar-weather" style="margin-right: 10px"><span class="weather-city">获取天气中...</span><span>&nbsp;&nbsp;</span><span class="weather-text"></span><span>&nbsp;&nbsp;</span><span class="weather-temperature"></span></p>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 left-container">
+            <h3>湛江人文</h3>
+            <p>没有记忆的城市是肤浅的。</p>
+            <p>在老街漫步，斑驳的印记总在不经意间流露出来，有一种沧桑气质是由岁月所锻造出来的。</p>
+            <p>不妨绕开人群，走进有些僻静的小街里弄，发现繁华城市背后的老骑楼、老字号、古码头、青石路、手艺人的故事……</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#">东海岛人龙舞</a></li>
+                <li><a href="culture-tanwu-details.html">湛江傩舞</a></li>
+                <li><a href="culture-piaose-details.html">吴川飘色</a></li>
+                <li><a href="culture-xingshi-details.html">遂溪醒狮</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-9 col-md-9 right-container">
+            <div class="page-header">
+                <h1> 东海岛人龙舞
+                    <small style="font-size: 50%; margin-left: 20px">独具特色，东方一绝</small>
+
+                    <div class="site-title-buttons">
+                        <button type="button" class="btn btn-default btn-sm" onclick="window.open('http://tv.cntv.cn/video/C22432/05d1b15faf374e58bfd3db4b2f644075?fromvsogou=1&from=groupmessage')">
+                            <span class="glyphicon glyphicon-map-marker"></span> 视频展示
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm" onclick="window.open('https://baike.baidu.com/item/%E4%B8%9C%E6%B5%B7%E5%B2%9B%E4%BA%BA%E9%BE%99%E8%88%9E/2243098')">
+                            <span class="glyphicon glyphicon-book"></span> 百度百科
+                        </button>
+                    </div>
+                </h1>
+            </div>
+            <div class="details">
+                <div class="sight-img-show">
+                    <div class="options">
+                        <div class="option active" style="--optionBackground:url(../img/details/dhdrlw1.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/dhdrlw2.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/dhdrlw3.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/dhdrlw4.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/dhdrlw5.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    东海岛人龙舞是一种古老的传统舞蹈。起源于广东省湛江市东海岛东山镇，始于明末清初，是流传300多年的民间大型广场表演艺术，其结构分为龙头、龙身和龙尾，由大人和孩童结合而成，规模可大可小，节数多少不等。
+                </p>
+                <p>
+                    以舞龙的方式来祈求平安和丰收是全国各地的一种习俗。东海
+                    岛人龙舞是一种传统大型广场舞蹈艺术，该舞盛行于广东省湛江市东海岛的东山镇。
+                    人龙舞之所以被称为“人龙”，是由于演出的“龙”全部由人组成，而不是用物构成。龙身巨长，一般由五六十人组成，有的达数百人，气势雄伟壮观。
+                </p>
+                <p>“东海岛人龙舞”充满了浓郁的乡土气息，东海“人龙舞”作为一种民间艺术形式，其源远流长，独具特色，被誉为“东方一绝”。</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p><a href="../welcome.html">欢迎页</a> | <a href="../index.html">介绍页</a> | <a href="../message_board/board.html">留言板</a></p>
+    <p><a href="https://github.com/JezaChen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://jeza-chen.com/" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a></p>
+    <p>JZX. 2018. All rights reserved.</p>
+</div>
+<a class="to-top">返回顶部</a>
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        var n = 0;
+        var myLi = $('#picLists').find('li');
+        for (var i = 0; i < myLi.length; i++) {
+            myLi.eq(i).css({left: i * 200 + 'px'});
+        }
+        myLi.hover(function () {
+            var liIndex = $(this).index();
+            for (var j = 1; j <= liIndex; j++) {
+                myLi.eq(j).stop().animate({left: j * 100 + 'px'}, 300);
+            }
+            for (var j = liIndex + 1; j < myLi.length; j++) {
+                myLi.eq(j).stop().animate({left: 500 + j * 100 + 'px'}, 300);
+            }
+        }, function () {
+            for (var i = 0; i < myLi.length; i++) {
+                myLi.eq(i).stop().animate({left: i * 200 + 'px'}, 300);
+            }
+        });
+    });
+
+    $('.to-top').toTop();
+</script>
+
+<script src="../js/sight-details.js"></script>
+<script type="text/javascript">
+    var map_modal;
+
+    //百度地图API功能
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=QGlN1PQ2LsOg0Vd5ZKEGbWAc15dNUPdV&callback=init";
+        document.body.appendChild(script);
+    }
+
+    function init() {
+        map_modal = new BMap.Map("allmap-modal");            // 创建Map实例
+        var mark_point = new BMap.Point(110.431274, 21.256722); // 创建点坐标
+        var point = new BMap.Point(110.431274 - 0.025, 21.256722 + 0.012);
+        map_modal.centerAndZoom(point, 15);
+        map_modal.disableScrollWheelZoom();  //禁用滚轮放大缩小
+
+        let marker = new BMap.Marker(mark_point); //创建标注
+        map_modal.addOverlay(marker); //将标注添加到地图上
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动
+    }
+
+    window.onload = loadJScript;  //异步加载地图
+</script>
+<!---天气js-->
+<script src="../js/weather.js"></script>
+<!---用户登录模块-->
+<script src="../js/cookie.js"> </script>
+<script>
+    /***
+     *@brief 页面加载时用于读取cookie读取账号信息
+     * */
+    function checkUser() {
+        let userinfo;
+        if ((userinfo = getUser()) != null) {
+            $('.navbar-user-email').text(userinfo[0]);
+            $('.navbar-user-info').text("欢迎您，" + userinfo[1]);
+            $('.navbar-user').show();
+            $('.navbar-login').hide(); //登录按钮隐去
+        }
+    }
+    checkUser();
+
+    /***
+     * @brief 注销账号
+     * */
+    function cancelUser() {
+        login("", ""); //直接赋空cookie即可
+        $('.navbar-user').hide();
+        $('.navbar-login').show();
+    }
+</script>
+</html>

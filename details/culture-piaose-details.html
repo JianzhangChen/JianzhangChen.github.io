@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>湛江人文——详情页</title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.toTop.min.js"></script>
+
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+
+    <script src="../js/bootstrap.min.js"></script>
+    <!--手风琴效果-->
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+
+    <link href="../css/details.css" type="text/css" rel="stylesheet"/>
+
+    <style>
+        .site-title {
+            font-weight: 600;
+            color: #FFF;
+            margin-left: 0;
+            font-size: 16px;
+        }
+    </style>
+
+    <!---模态框专用-->
+    <script src="../js/remodal.js"></script>
+    <link rel="stylesheet" href="../css/remodal.css">
+    <link rel="stylesheet" href="../css/remodal-default-theme.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="../img/zhanjiang-logo.png"/>
+            </a>
+        </div>
+        <div>
+            <p class="navbar-text site-title">详情页</p>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="shenghao-details.html">美食</a></li>
+                <li><a href="sight-haiwandaqiao-details.html">风光</a></li>
+                <li class="active"><a href="#">文化</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-login"><a href="../login/login.html"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                <li class="dropdown navbar-user" style="display: none">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="navbar-user-info">欢迎您</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><p class="navbar-text navbar-user-email">aaa</p></li>
+                        <li class="divider"></li>
+                        <li><a href="../login/login.html">重新登录</a></li>
+                        <li><a href="javascript:void(0)" onclick="cancelUser();">注销</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="navbar-text navbar-right navbar-weather" style="margin-right: 10px"><span class="weather-city">获取天气中...</span><span>&nbsp;&nbsp;</span><span class="weather-text"></span><span>&nbsp;&nbsp;</span><span class="weather-temperature"></span></p>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 left-container">
+            <h3>湛江人文</h3>
+            <p>没有记忆的城市是肤浅的。</p>
+            <p>在老街漫步，斑驳的印记总在不经意间流露出来，有一种沧桑气质是由岁月所锻造出来的。</p>
+            <p>不妨绕开人群，走进有些僻静的小街里弄，发现繁华城市背后的老骑楼、老字号、古码头、青石路、手艺人的故事……</p>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="culture-renlongwu-details.html">东海岛人龙舞</a></li>
+                <li><a href="culture-tanwu-details.html">湛江傩舞</a></li>
+                <li class="active"><a href="#">吴川飘色</a></li>
+                <li><a href="culture-xingshi-details.html">遂溪醒狮</a></li>
+            </ul>
+            <hr class="hidden-sm hidden-md hidden-lg">
+        </div>
+        <div class="col-sm-9 col-md-9 right-container">
+            <div class="page-header">
+                <h1> 吴川飘色
+                    <small style="font-size: 50%; margin-left: 20px">民间绝技，吴川智慧</small>
+
+                    <div class="site-title-buttons">
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="window.open('https://v.qq.com/x/page/d0125bb0udq.html')">
+                            <span class="glyphicon glyphicon-map-marker"></span> 视频展示
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm"
+                                onclick="window.open('https://baike.baidu.com/item/%E5%90%B4%E5%B7%9D%E9%A3%98%E8%89%B2%E8%89%BA%E6%9C%AF/3915314')">
+                            <span class="glyphicon glyphicon-book"></span> 百度百科
+                        </button>
+                    </div>
+                </h1>
+            </div>
+            <div class="details">
+                <div class="sight-img-show">
+                    <div class="options">
+                        <div class="option active" style="--optionBackground:url(../img/details/wcps1.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/wcps2.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/wcps3.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/wcps4.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="option" style="--optionBackground:url(../img/details/wcps5.jpg);">
+                            <div class="shadow"></div>
+                            <div class="label">
+                                <div class="icon">
+                                    <i class="fas fa-image"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    广东湛江的吴川市的飘色、泥塑、花桥被誉为"吴川三绝"，飘色乃“三绝”之首。吴川飘色由来已久，在明末清初时由广东番禺沙湾传入吴川。期间经过吴川民间艺人的精心打造，更显现出飘逸灵巧的风格。飘色，用吴川方言又叫“妖色”，它是运用力学原理，用钢枝作为骨架，巧妙地支撑一个小孩子坐在几米高骨架顶上，小孩身穿鲜艳的古代服装，遮掩了他是坐在上面的实质，外人一点也看不出来，看起来，他们就像在空中飘然欲飞，生动奇妙，故名之“飘色”，同时凭着民间艺人的大胆想象，他们可以把“飘色”的造型做得变化万千，千奇百怪。有些大型的“飘色”，甚至可以支撑十来个小孩坐在骨架上面。飘色是集戏剧、杂技、铁工、木工、车工、电工等工艺精心制作的综合舞台造型艺术。飘色集精、巧、奇于一身，形成独具匠心的艺术造型和奇特的视觉错位――凌空飘逸，奇异惊险，所到之处，万人空巷。
+                </p>
+                <p>
+                    飘色的种类繁多，根据安放位置的不同，可以分为水色、车色和船色三种。吴川飘色属于车色，它由三部分组成：一是色板，即板车;二是色梗，即支撑的钢枝;三是扮“色”的孩童，台面上的造型是“屏”，凌空飘逸的为“飘”，两者靠一支精心锻造的“色梗”连成有机整体。一车称为“一板”，一板由几个人物组成，就称为几飘，如一板三人，就称为“三飘”。吴川飘色最多达到一板“十五飘”（梅菉头的《水帘洞》）。为了结构上的惊险、奇异和美观，多飘时人物分层次摆立。
+                </p>
+                <p>
+                    飘色内容多为家喻户晓的戏剧或神话传说中的人物，当然也包括现当代一些知名人物，一般都是表现人们扬善惩恶、安居乐业、传颂英雄、鞭挞丑恶的朴素、善良心理。如《游湖借伞》、《盗灵芝》、《穆桂英》等等。人物打扮装束与粤剧风格如出一辙，岭南特色明显。近年来，现代文明内容也融于其中，如科技、教育、奥运和环保等。生肖造型是每年必须的，且最先亮相，如《雄鸡贺岁》等。尤其是今天的飘色，既有舞龙、舞狮之类的神州大地处处可见的传统艺术形式，还有以傩戏徒刑队伍组成的飘色阵营。
+                </p>
+                <p>
+                    为何飘色所到之处万人空巷，就连海外人士也纷纷涌入吴川呢？又为何将之称为“三绝”之首？就在于飘色之绝。飘色之绝在于高超的隐蔽方法，整个制作过程也非常考究。首先，人物要按照历史、传说、戏剧或生活背景进行布局、化妆。服饰要配置得当，通常要画出飘色造型的大致结构;其次是巧妙地运用力学原理，整个造型结构交叉错落，必须在板车和支架上做好受力平衡;最后，造型人物靠一根看不见的钢条“色梗”支撑，并依靠在这些起承受作用的钢铁框架上，因此支架的设计必须与造型的动作和组合相符。现今吴川飘色一般用上好的铁条，在关键部位，多采用汽车的避震钢片焊接起来，再用必要的物饰装裹这些铁枝，看上去像是刀枪或龙蛇等与表演内容相关的饰物，修饰得含蓄精致，不露痕迹。这就是飘色的主心骨，人物穿上服装时，结构框架就隐入其中。这样，整台飘色看起来就生动逼真，给人予神秘怪异感。
+                </p>
+                <p>
+                    吴川飘色这株南国民间艺术的绚丽奇葩，曾两度参与中央电视台春节联欢晚会，被外国友人称为“隐秘的东方艺术”。又赢得了“独具岭南民间艺术风格”的美誉。2005年7月，吴川飘色成为广东51个国家非物质遗产申报项目之一，是唯一的飘色申报项目。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+    <p><a href="../welcome.html">欢迎页</a> | <a href="../index.html">介绍页</a> | <a href="../message_board/board.html">留言板</a></p>
+    <p><a href="https://github.com/JezaChen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://jeza-chen.com/" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a></p>
+    <p>JZX. 2018. All rights reserved.</p>
+</div>
+<a class="to-top">返回顶部</a>
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        var n = 0;
+        var myLi = $('#picLists').find('li');
+        for (var i = 0; i < myLi.length; i++) {
+            myLi.eq(i).css({left: i * 200 + 'px'});
+        }
+        myLi.hover(function () {
+            var liIndex = $(this).index();
+            for (var j = 1; j <= liIndex; j++) {
+                myLi.eq(j).stop().animate({left: j * 100 + 'px'}, 300);
+            }
+            for (var j = liIndex + 1; j < myLi.length; j++) {
+                myLi.eq(j).stop().animate({left: 500 + j * 100 + 'px'}, 300);
+            }
+        }, function () {
+            for (var i = 0; i < myLi.length; i++) {
+                myLi.eq(i).stop().animate({left: i * 200 + 'px'}, 300);
+            }
+        });
+    });
+
+    $('.to-top').toTop();
+</script>
+
+<script src="../js/sight-details.js"></script>
+<script type="text/javascript">
+    var map_modal;
+
+    //百度地图API功能
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=QGlN1PQ2LsOg0Vd5ZKEGbWAc15dNUPdV&callback=init";
+        document.body.appendChild(script);
+    }
+
+    function init() {
+        map_modal = new BMap.Map("allmap-modal");            // 创建Map实例
+        var mark_point = new BMap.Point(110.431274, 21.256722); // 创建点坐标
+        var point = new BMap.Point(110.431274 - 0.025, 21.256722 + 0.012);
+        map_modal.centerAndZoom(point, 15);
+        map_modal.disableScrollWheelZoom();  //禁用滚轮放大缩小
+
+        let marker = new BMap.Marker(mark_point); //创建标注
+        map_modal.addOverlay(marker); //将标注添加到地图上
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动
+    }
+
+    window.onload = loadJScript;  //异步加载地图
+</script>
+<!---天气js-->
+<script src="../js/weather.js"></script>
+<!---用户登录模块-->
+<script src="../js/cookie.js"> </script>
+<script>
+    /***
+     *@brief 页面加载时用于读取cookie读取账号信息
+     * */
+    function checkUser() {
+        let userinfo;
+        if ((userinfo = getUser()) != null) {
+            $('.navbar-user-email').text(userinfo[0]);
+            $('.navbar-user-info').text("欢迎您，" + userinfo[1]);
+            $('.navbar-user').show();
+            $('.navbar-login').hide(); //登录按钮隐去
+        }
+    }
+    checkUser();
+
+    /***
+     * @brief 注销账号
+     * */
+    function cancelUser() {
+        login("", ""); //直接赋空cookie即可
+        $('.navbar-user').hide();
+        $('.navbar-login').show();
+    }
+</script>
+</html>

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>中国-湛江</title>
+    <meta name="author" content="Jianzhang Chen"/>
+    <meta name="description" content="我的老家——湛江"/>
+    <meta name="Resource-type" content="Document"/>
+
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css"/>
+    <link rel="stylesheet" type="text/css" href="css/examples.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index_style.css"/>
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/custombox.min.js"></script>
+    <link href="css/custombox.min.css" rel="stylesheet">
+
+    <!---模态框专用-->
+    <script src="js/remodal.js"></script>
+    <link rel="stylesheet" href="css/remodal.css">
+    <link rel="stylesheet" href="css/remodal-default-theme.css">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        var console = {
+            log: function () {
+            }
+        };
+    </script>
+    <![endif]-->
+
+    <style>
+        .myContent {
+            height: 300px;
+        }
+    </style>
+    <style id="css">
+
+        .box {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .picList {
+            width: 800px;
+            height: 360px;
+            -webkit-perspective: 800px;
+        }
+
+        .picList li {
+            width: 25px;
+            height: 360px;
+            float: left;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform: translateZ(-180px);
+        }
+
+        .picList a {
+            width: 100%;
+            height: 360px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .picList span {
+            width: 360px;
+            height: 360px;
+            background: #333;
+            position: absolute;
+            top: 0;
+        }
+
+        .picList li a:nth-of-type(1) {
+            background: url(img/1.jpg) no-repeat;
+            -webkit-transform: translateZ(180px);
+        }
+
+        .picList li a:nth-of-type(2) {
+            background: url(img/2.jpg) no-repeat;
+            -webkit-transform: translateZ(-180px) rotateX(90deg);
+            -webkit-transform-origin: top;
+        }
+
+        .picList li a:nth-of-type(3) {
+            background: url(img/3.jpg) no-repeat;
+            -webkit-transform: translateZ(-180px) rotateX(180deg);
+        }
+
+        .picList li a:nth-of-type(4) {
+            background: url(img/4.jpg) no-repeat;
+            -webkit-transform-origin: bottom;
+            -webkit-transform: translateZ(-180px) rotateX(-90deg);
+        }
+
+        .picList li span:nth-of-type(1) {
+            left: 0;
+            -webkit-transform-origin: left;
+            -webkit-transform: translateZ(180px) rotateY(90deg);
+        }
+
+        .picList li span:nth-of-type(2) {
+            right: 0;
+            -webkit-transform-origin: right;
+            -webkit-transform: translateZ(180px) rotateY(-90deg);
+        }
+
+        #btn {
+            padding: 20px 0;
+            height: 30px;
+            float: left;
+        }
+
+        #btn li {
+            width: 30px;
+            height: 30px;
+            background: #000;
+            color: #fff;
+            font: bold 16px/30px Arial;
+            text-align: center;
+            float: left;
+            margin: 0 10px;
+            border-radius: 50%;
+        }
+
+        #btn .active {
+            background: #f60;
+        }
+
+    </style>
+    <style>
+        .section0-brief {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="menu">
+    <div class="index-logo">
+        <img src="img/zhanjiang-logo-black.png" id="index-logo"/>
+    </div>
+    <li data-menuanchor="anchor1"><a href="#anchor1">简要</a></li>
+    <li data-menuanchor="anchor2"><a href="#anchor2">美食</a></li>
+    <li data-menuanchor="anchor3"><a href="#anchor3">风光</a></li>
+    <li data-menuanchor="anchor4"><a href="#anchor4">人文</a></li>
+    <div class="weather-info"><p class="navbar-text navbar-right navbar-weather" style="margin-right: 10px"><span
+            class="weather-city">获取天气中...</span><span>&nbsp;&nbsp;</span><span class="weather-text"></span><span>&nbsp;&nbsp;</span><span
+            class="weather-temperature"></span></p></div>
+</ul>
+
+<div id="fullpage">
+    <div class="section" id="section0">
+        <div class="slide" id="slide12">
+
+            <div class="section0-content">
+                <div class="section0-title-icon">
+                    <img src="img/zhanjiang-logo.png"/>
+                </div>
+                <div class="section0-brief">
+                    <p>三面大海相拥，四季花开如春。</p>
+                    <p>多少岁月更迭，不变的是港城的魂。</p>
+                    <a href="#anchor1/1" class="a-button zhanjiang-card-button">港城名片</a>
+                    <a href="#anchor2" class="a-button zhanjiang-overlook-button">纵览港城</a>
+                    <a href="details/shenghao-details.html" class="a-button zhanjiang-details-button">详细介绍</a>
+                </div>
+            </div>
+        </div>
+        <div class="slide" id="slide13">
+            <div id="allmap"></div>
+            <div class="zhanjiang-brief">
+                <h1>湛蓝的海 湛蓝的天</h1>
+                <p>
+                    湛江，别称“港城”，位于中国大陆最南端，广东省西南部，三面环海，东濒南海，南隔琼州海峡与大特区海南省相望，西临北部湾，拥有2023.6公里长的黄金海岸线，是一座激情浪漫的海湾城市。
+                    这个史称“广州湾”的美丽半岛，一半火山，一半海水，城在海滨，海在城中，都市风情与古老雷州文化交相辉映，享有黄金海岸、生态绿都、天南古邑、魅力港城的盛誉。
+                    当你徜徉其中，一定会不期而遇让人怦然心动的风景。
+                </p>
+                <p>
+                    全市人口800万，<a href="javascript:void(0)" onclick="getBoundary();">面积1.32万平方公里</a>，辖<a
+                        href="javascript:void(0)" onclick="getCountyMarker();">5县（市）4区</a>，拥有1个国家级经济技术开发区和6个省级经济开发试验区，为全国首批对外开放的沿海城市，
+                    中国优秀旅游城市、中国海鲜美食之都、国家园林城市、中国十佳绿色城市、中国十大低碳生态城市、中国人居环境范例城市。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="section " id="section1">
+        <div class="slide" id="slide1">
+            <div class="myContent">
+                <h1><img src="img/zhanjiang-food.PNG" height="200px" class="content-title"/></h1>
+                <p>舌尖上的湛江——“吃海鲜，到湛江”，湛江是中国唯一的海鲜美食之都和对虾之都。</p>
+                <p>湛江的餐桌，宛如海鲜展台，不花俏、不做作，白灼是湛江海鲜的最高境界。</p>
+                <p>另一方面，湛江小吃，却又穷尽心思、时间、经验，方得一小口的满足。</p>
+            </div>
+        </div>
+        <div class="slide" id="slide2">
+            <h1><img src="img/shenghao.png" height="200px"/></h1>
+            <a class="a-button" href="#modal-shenghao">ABOUT 生蚝</a>
+            <a class="a-button" href="https://item.jd.com/10865593606.html" target="_blank">去京东买生蚝！</a>
+        </div>
+        <div class="slide" id="slide3">
+            <h1><img src="img/zhanjiangbaiqieji.PNG" height="200px"/></h1>
+            <a class="a-button" href="#modal-baiqieji">ABOUT 湛江白切鸡</a>
+            <a class="a-button" href="https://item.taobao.com/item.htm?id=538762138913&ns=1&abbucket=6#detail"
+               target="_blank">去淘宝买鸡！</a>
+        </div>
+        <div class="slide" id="slide4">
+            <h1><img src="img/shuzhu.PNG" height="200px"/></h1>
+            <a class="a-button" href="#modal-shaozhu">ABOUT 三口一头猪</a>
+        </div>
+    </div>
+    <div class="section " id="section2">
+        <div class="slide" id="slide5">
+            <div class="myContent">
+                <h1><img src="img/zhanjiang-sight.PNG" height="200px" class="content-title"/></h1>
+                <p>这是一个没有冬天的地方，只有北方的候鸟成群结队飞至才让人感到冬天的到来。</p>
+                <p>而夏天恣意地占据了近2/3的时间，缠绵的春天与金黄的秋天在有限时间里拼命地展现自我；</p>
+                <p>大海、红土变换颜色与姿态来宣告季节的流转。</p>
+            </div>
+        </div>
+        <div class="slide sight-content" id="slide7">
+            <div class="myContent">
+                <h1>湛江风光 -- 海湾大桥 <a class="a-button map-button" href="javascript:void(0)"
+                                    onclick="openMapModal(0);">地图</a>
+                    <a class="a-button info-button" href="details/sight-haiwandaqiao-details.html"
+                       target="_blank">详情</a>
+                </h1>
+                <p>这是一座见证湛江崛起的精神丰碑。
+                    蓝天碧海，一桥飞架东西天堑变通途。</p>
+                <p>似巨龙腾空，如彩虹飞跨。</p>
+            </div>
+        </div>
+        <div class="slide sight-content" id="slide8">
+            <div class="myContent">
+                <h1>湛江风光 -- 湖光岩地质公园 <a class="a-button map-button" href="javascript:void(0)" onclick="openMapModal(1);">地图</a>
+                    <a class="a-button info-button" href="details/sight-huguangyan-details.html" target="_blank">详情</a>
+                </h1>
+                <p>古树难天，古藤缭绕，植被茂盛。</p>
+                <p>湖光岩源于万年火山，是世界玛珥湖的典型代表。</p>
+                <p>火山环抱，湖四周悬崖陡壁。湖水清澈如镜，根群抢石成景，构成了一幅美丽的山水画卷。</p>
+            </div>
+        </div>
+        <div class="slide sight-content" id="slide9">
+            <div class="myContent">
+                <h1>湛江风光 -- 特呈岛 <a class="a-button map-button" href="javascript:void(0)"
+                                   onclick="openMapModal(2);">地图</a>
+                    <a class="a-button info-button" href="details/sight-techengdao-details.html" target="_blank">详情</a>
+                </h1>
+                <p>特呈岛又称“红岛”，在这里似乎世间万物都是红色的。</p>
+                <p>它宛如镶嵌在蓝色港湾中的一颗红宝石，沐浴着党的春风，闪烁着璀璨夺目的光芒。</p>
+                <p>大海、海鸥、渔船和采海人相映衬托，就象一幅色彩斑斓的油画，让人流连忘返。</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <div class="slide" id="slide6">
+            <div class="myContent">
+                <h1><img src="img/zhanjiang-humanity.PNG" height="200px" class="content-title"/></h1>
+                <p>没有记忆的城市是肤浅的。</p>
+                <p>在老街漫步，斑驳的印记总在不经意间流露出来，有一种沧桑气质是由岁月所锻造出来的。</p>
+                <p>不妨绕开人群，走进有些僻静的小街里弄，发现繁华城市背后的老骑楼、老字号、古码头、青石路、手艺人的故事……</p>
+            </div>
+        </div>
+        <div class="slide humanity-content" id="slide10">
+            <div class="slide-title">
+                <h1 class="humanity-cele-title">
+                    <img src="img/mingrenwangshi.PNG" height="100"/>
+                    <div class="line"></div>
+                </h1>
+                <div class="celebrity-grp">
+                    <div class="cele-li">
+                        <div class="celebrity-profile">
+                            <a href="#modal-chenbin">
+                                <div class="celebrity-pic" data-text="陈瑸">
+                                    <img src="img/h_chenbin.jpg"/>
+                                </div>
+                            </a>
+                            <!--
+                            <div class="celebrity-name">
+                                <span>陈瑸</span>
+                            </div>
+                            <div class="celebrity-details">
+                                <span>雷州人。康熙皇帝称之“清廉中之卓绝”。</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="cele-li">
+                        <div class="celebrity-profile">
+
+                            <a href="#modal-lihanhun">
+                                <div class="celebrity-pic" data-text="李汉魂">
+
+                                    <img src="img/h_lihanhun.jpg"/>
+                                </div>
+                            </a>
+
+                            <!--
+                            <div class="celebrity-name">
+                                <span>李汉魂</span>
+                            </div>
+
+                            <div class="celebrity-details">
+                                <span>吴川人，国民革命军陆军上将。</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="cele-li">
+                        <div class="celebrity-profile">
+
+                            <a href="#modal-liyuri">
+                                <div class="celebrity-pic" data-text="李浴日">
+                                    <img src="img/h_liyuri.jpg"/>
+                                </div>
+                            </a>
+
+                            <!--
+                            <div class="celebrity-name">
+                                <span>李浴日</span>
+                            </div>
+
+                            <div class="celebrity-details">
+                                <span>雷州人，近代著名军事学家。</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                    <div class="cele-li">
+                        <div class="celebrity-profile">
+
+                            <a href="#modal-huangxuezeng">
+                                <div class="celebrity-pic" data-text="黄学增">
+                                    <img src="img/h_huangxuezeng.jpg"/>
+                                </div>
+                            </a>
+
+                            <!--
+                            <div class="celebrity-name">
+                                <span>黄学增</span>
+                            </div>
+
+                            <div class="celebrity-details">
+                                <span>遂溪人，广东四大农运领袖之一。</span>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="slide humanity-content" id="slide11">
+            <div class="box">
+                <ul class="picList" id="pic">
+                </ul>
+                <div class="box-item-brief">
+                    <span>东海岛人龙舞是一种古老的汉族舞蹈。起源于广东省湛江市东海岛东山镇，始于明末清初，是流传300多年的民间大型广场表演艺术，其结构分为龙头、龙身和龙尾，由大人和孩童结合而成，规模可大可小，节数多少不等。</span>
+                </div>
+                <ol id="btn">
+                    <li class="active">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <a class="box-more-info-btn a-button" href="javascript:void(0)" onclick="showCultureDetails();">查看更多信息</a>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="section fp-auto-height" id="section4">
+        <div class="section-footer">
+            <p><a href="welcome.html">欢迎页</a> | <a href="details/shenghao-details.html">详情页</a> | <a href="message_board/board.html">留言板</a></p>
+            <p><a href="https://github.com/JezaChen" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i></a><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://jeza-chen.com/" target="_blank"><i class="fa fa-link" aria-hidden="true"></i></a></p>
+            <p>JZX. 2018. All rights reserved.</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/fullpage.js"></script>
+<script type="text/javascript" src="js/examples.js"></script>
+
+<script type="text/javascript">
+
+    var myFullpage = new fullpage('#fullpage', {
+        verticalCentered: true,
+        anchors: ['anchor1', 'anchor2', 'anchor3', 'anchor4', 'anchor5'],
+        menu: '#menu',
+        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#FFFFFF', "#020202"],
+        //navigation: true,
+        //navigationTooltips: ['简要', '美食', '风光', '人文'],
+        //showActiveTooltip: true,
+        afterLoad: function (origin, destination, direction) {
+            if (destination.index !== 2) {
+                $("#index-logo").attr("src", "img/zhanjiang-logo-black.png");
+                $(".weather-info").css("color", "#000000");
+            } else {
+                $("#index-logo").attr("src", "img/zhanjiang-logo.png");
+                $(".weather-info").css("color", "#FFFFFF");
+            }
+            if (destination.index === 1 || destination.index === 2 || destination.index === 3)
+                $(".myContent p").animate({opacity: "1.0"}, "slow");
+
+            if (destination.index === 0) {
+                $("#slide12").css("background-position-y", "center");
+                $('#slide12').mousemove(function (e) {
+                    var x = (e.pageX * -1 / 8), y = (e.pageY * -1 / 8) - 200; //emmm -200
+                    $(this).css('background-position', x + 'px ' + y + 'px');
+                });
+            }
+
+            /***用于侧栏的颜色变动***/
+            if (destination.index === 3) {
+                $('.fp-next').css('border-color', 'transparent transparent transparent #000');
+                $('.fp-prev').css('border-color', 'transparent #000 transparent transparent');
+            } else {
+                $('.fp-next').css('border-color', 'transparent transparent transparent #fff');
+                $('.fp-prev').css('border-color', 'transparent #fff transparent transparent');
+            }
+        },
+        afterSlideLoad: function (anchor, origin, destination, direction) {
+            if (destination.index === 0) {
+                $("#index-logo").attr("src", "img/zhanjiang-logo-black.png");
+                $(".weather-info").css("color", "#000000");
+            } else if ((anchor.index === 1 || anchor.index === 2) && (destination.index === 1 || destination.index === 2 || destination.index === 3)) {
+                $("#index-logo").attr("src", "img/zhanjiang-logo.png");
+                $(".weather-info").css("color", "#FFFFFF");
+            }
+
+            /***用于侧栏的颜色变动***/
+            if (anchor.index === 3 && destination.index === 0) {
+                $('.fp-next').css('border-color', 'transparent transparent transparent #000');
+                $('.fp-prev').css('border-color', 'transparent #000 transparent transparent');
+            } else {
+                $('.fp-next').css('border-color', 'transparent transparent transparent #fff');
+                $('.fp-prev').css('border-color', 'transparent #fff transparent transparent');
+            }
+
+        },
+        onLeave: function (index, nextIndex, direction) {
+            $(".myContent p").css("opacity", "0.0");
+        },
+        css3: true,
+    });
+</script>
+<script>
+    window.onload = function () {
+        var oPic = document.getElementById("pic");
+        var oCss = document.getElementById("css");
+        var aBtn = document.getElementById("btn").getElementsByTagName("li");
+        var iLiW = 25;
+        var iLength = oPic.clientWidth / iLiW;
+        var aLi = [];
+        var sHtml = "";
+        var sCss = "";
+        var iZindex = 0;
+        var iNow = 0;
+        for (var i = 0; i < iLength; i++) {
+            i > iLength / 2 ? iZindex-- : iZindex++;
+            sCss += ".picList li:nth-of-type(" + (i + 1) + "){z-index:" + iZindex + ";}.picList li:nth-of-type(" + (i + 1) + ") a{background-position:-" + i * iLiW + "px 0px;}"
+        }
+        oCss.innerHTML += sCss;
+        for (var i = 0; i < iLength; i++) {
+            sHtml += '<li><a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a><span></span><span></span></li>';
+        }
+        oPic.innerHTML = sHtml;
+        aLi = oPic.getElementsByTagName("li");
+        for (var i = 0; i < aBtn.length; i++) {
+            aBtn[i].onclick = (function (a) {
+                return function () {
+                    aBtn[iNow].className = "";
+                    for (var i = 0; i < aLi.length; i++) {
+                        aLi[i].style.transition = Math.abs(a - iNow) * 0.5 + "s " + i * 80 + "ms all ease";
+                        aLi[i].style.WebkitTransform = "translateZ(-180px) rotateX(-" + a * 90 + "deg)";
+                    }
+                    iNow = a;
+                    aBtn[iNow].className = "active";
+                    $(".box-item-brief span").text(brief[iNow]);
+                    $("#slide11").css("background-image", "url(\"img/" + (iNow + 1) + "-bg.jpg\")");
+                };
+            })(i);
+        }
+        loadJScript();
+    };
+    let brief = [
+        "东海岛人龙舞是一种古老的汉族舞蹈。起源于广东省湛江市东海岛东山镇，始于明末清初，是流传300多年的民间大型广场表演艺术，其结构分为龙头、龙身和龙尾，由大人和孩童结合而成，规模可大可小，节数多少不等。",
+        "湛江傩舞起源于原始社会图腾崇拜祭祀仪式，其内容形式是古代雷州半岛汉族劳动人民敬天崇雷而形成的一种独特雷傩舞，以雷首公与东、南、西、北、中五方雷将为主体，还包括土地公婆、艄公婆等，是当地古代先民祭雷遣灾、祷神保平安的汉族民俗舞蹈。",
+        "吴川飘色艺术是广东省吴川市的传统民俗文化活动。由若干人推着一座色板，色板上装饰着固定姿势的人物。人物只靠一根看不见的色梗支撑着，在高可逾人的空中手舞足蹈，飘然欲飞故而叫飘色。属于社火表演艺术形式之一。",
+        "遂溪醒狮表演始于明清时期，是一种地道的广东省民间舞蹈，是广东舞苑中的一宝。传统民俗认为舞狮可以驱邪辟鬼。故此每逢喜庆节日，例如新张庆典、迎春赛会等，都喜欢敲锣打鼓，舞狮助庆。200多年来，凡逢年过节、喜红庆典，都用醒狮助兴，祈求平安吉祥."
+    ];
+
+</script>
+
+<!---模态框相关div--->
+<div class="remodal" data-remodal-id="modal-shaozhu" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal1Title">湛江烧猪</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal1Img">
+                <img src="img/sankouyitouzhu.jpg"/>
+            </div>
+            <div class="modal-detail" id="modal1Desc">
+                <p>新鲜出炉的湛江烧猪</p>
+                <p>表皮黄色芝麻点</p>
+                <p>显得十分诱人</p>
+                <p>一口下去</p>
+                <p>肉汁丰盈</p>
+                <p>皮脆肉香</p>
+                <p>古法烧猪风味一绝</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button onclick="window.open('details/shaozhu-details.html')" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-baiqieji" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal2Title">湛江白切鸡</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal2Img">
+                <img src="img/modal_baiqieji.jpg"/>
+            </div>
+            <div class="modal-detail" id="modal2Desc">
+                <p>湛江鸡位列“广东三大名鸡”之首，曾有“名震雷州三千里，味压江南十二楼”之美誉。</p>
+                <p>湛江鸡肉质本身味道就已经很香浓了，通常配一碟本地特有的沙姜酱油，就能激发出鸡味最原始最完美的味觉享受。</p>
+                <p>鸡肉嚼在嘴里，能够深刻地体会到鸡肉的甘、香、滑三种境界，基本上属于吃一块想两块。</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button onclick="window.open('details/baiqieji-details.html')" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-shenghao" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal3Title">湛江生蚝</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal3Img">
+                <img src="img/modal_shenghao.jpeg"/>
+            </div>
+            <div class="modal-detail" id="modal3Desc">
+                <p>很多人对湛江生蚝的第一次亲密接触，是在那些夜宵烧烤档里。</p>
+                <p>烧烤的烟气在浓浓的夜色里散开，雾里烟里的人喝酒吸蚝，在一片喧闹声里仿佛满满的尘世之气覆盖了整条街，可以说没有宵夜过的人，不识人间烟火。</p>
+                <p>而炭烧生蚝作为夜店宵夜劈酒必备，从广东传至大江南北，而湛江生蚝作为广东生蚝代表，至今已成为各地烧烤街的门牌之一。</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button onclick="window.open('details/shenghao-details.html')" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-map" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-map-h" id="modal4Title">湛江海湾大桥</h2>
+        <div id="allmap-modal"></div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button onclick="return false;" class="remodal-confirm map-remodal-more">地图详情</button>
+</div>
+<div class="remodal" data-remodal-id="modal-huangxuezeng" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal5Title">黄学增</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal5Img">
+                <img src="img/modal_huangxuezeng.jpg"/>
+            </div>
+            <div class="modal-detail modal-cele-detail" id="modal5Desc">
+                <p>黄学增（1900-1929）,广东省遂溪县乐民镇敦文村人,是大革命时期与彭湃、阮啸仙、周其鉴等人齐名的广东省四大农运领袖之一，又是土地革命时期广东西江和海南岛红军、苏维埃的创始人之一。
+                    一九二九年，在海口市英勇就义，时年29岁。</p>
+                <br/>
+                <p>
+                    1921年加入中国社会主义青年团，1922年转为中国共产党党员，成为广东早期党组织和广州地区青年学生运动骨干。
+                    1925年7月3日，任全国总工会省港罢工委员会顾问。1926年担任广东省农协秘书长。1930年1月17日被中共广东省委称为南路农民领袖。
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-liyuri" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal6Title">李浴日</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal6Img">
+                <img src="img/modal_liyuri.jpg"/>
+            </div>
+            <div class="modal-detail modal-cele-detail" id="modal6Desc">
+                <p>李浴日（1908.4——1955.8），广东雷州人，字春清。
+                    李浴日先生是我国近代著名军事学家，现代中国文人从事军事学研究的先驱者，中国现代军事理论体系的主要倡建者，孙子兵法研究第一人。
+                    他与浙江蒋百里、云南杨杰同为中国军事学巨擘，驰名海内外。他在军事学研究诸多领域，相当部分至今仍未有人超越，影响相当深远。</p>
+                <p>
+                    1950年春赴台湾，1955年8月7日病逝于台北永和寓所，时年47岁。
+                    李浴日一生正派，博学多才，毕生尽瘁兵学。据不完全统计，他译著兵书12种，达160余万言。
+                    更集中国2000年来兵书之精华数十种，编成《中国兵学大系》。
+                    他是民国时期中国著名兵学家，现代中国兵学理论体系的倡导者和构建人，现代中国文人介入兵学研究的先驱。
+                    在民国兵学领域，他的研究堪称多个第一。
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-lihanhun" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal7Title">李汉魂</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal7Img">
+                <img src="img/modal_lihanhun.jpg"/>
+            </div>
+            <div class="modal-detail modal-cele-detail" id="modal7Desc">
+                <p>李汉魂（1894—1987），字伯豪，汉族，广东吴川人。
+                    1919年保定陆军军官学校第六期毕业。1926年参加北伐战争。抗日战争时期历任军长、军团长、集团军总司令、广东省政府主席。
+                    抗战胜利后，游历考察欧洲、拉丁美洲等二十多个国家，1949年春去台湾，出任台湾当局总统府上将参谋长，后任内政部部长。</p>
+                <p>
+                    1949年李汉魂旅美后，靠与夫人经营餐室维持生计。
+                    但他在事关国格人格问题上，决不“入乡随俗”，而是一直保持着自己的中国国籍，并立下遗嘱，在他有生之年，如不能返回祖国，死后亦将他的骨灰葬在广东南华寺内。
+                    1987年他在美国纽约与世长辞后，按其遗嘱，其骨灰由其女儿李浈从太平洋彼岸带回南华寺安放，实现了其生前“落叶归根”的愿望。
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">查看更多</button>
+</div>
+<div class="remodal" data-remodal-id="modal-chenbin" role="dialog" aria-labelledby="modal1Title"
+     aria-describedby="modal1Desc">
+    <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+    <div>
+        <h2 class="modal-h" id="modal8Title">陈瑸</h2>
+        <div class="modal-content">
+            <div class="modal-img" id="modal8Img">
+                <img src="img/modal_chenbin.jpg"/>
+            </div>
+            <div class="modal-detail modal-cele-detail" id="modal8Desc">
+                <p>陈瑸（1656-1718年），字文焕，号眉川，广东海康（今属雷州市）人。
+                    康熙三十三年（公元1694年）进士，知福建古田县。疏议废加耗、惩贪官、禁滥刑、置社仓、粜积谷、崇节俭、兴书院、饬武备等。
+                    任福建巡抚、闽浙总督等。居官清廉，励精图治，布衣素食。累官福建巡抚、浙闽总督。清廉卓绝，圣祖称为“苦行老僧”。
+                    康熙三十九年任古田知县，又调到台湾主政。</p>
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <button data-remodal-action="cancel" class="remodal-cancel">退出</button>
+    <button data-remodal-action="confirm" class="remodal-confirm">查看更多</button>
+</div>
+<!------------------>
+</body>
+</html>
+
+
+<script type="text/javascript">
+    var map;
+    var map_modal;
+
+    //百度地图API功能
+    function loadJScript() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://api.map.baidu.com/api?v=2.0&ak=QGlN1PQ2LsOg0Vd5ZKEGbWAc15dNUPdV&callback=init";
+        document.body.appendChild(script);
+    }
+
+    function init() {
+        map = new BMap.Map("allmap");            // 创建Map实例
+        var point = new BMap.Point(110.068, 21.055); // 创建点坐标
+        map.centerAndZoom(point, 10);
+        map.disableScrollWheelZoom();  //禁用滚轮放大缩小
+
+        map_modal = new BMap.Map("allmap-modal");            // 创建Map实例
+        var point = new BMap.Point(110.068, 21.055); // 创建点坐标
+        map_modal.centerAndZoom(point, 10);
+        map_modal.disableScrollWheelZoom();  //禁用滚轮放大缩小
+    }
+
+    /**
+     * @brief 显示湛江市的边界
+     * */
+    function getBoundary() {
+        map.clearOverlays();
+        var bdary = new BMap.Boundary();
+        bdary.get("广东省湛江市", function (rs) {       //获取行政区域
+            var count = rs.boundaries.length; //行政区域的点有多少个
+            if (count === 0) {
+                alert('未能获取当前输入行政区域');
+                return;
+            }
+            var pointArray = [];
+            for (var i = 0; i < count; i++) {
+                var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 2, strokeColor: "#ff0000"}); //建立多边形覆盖物
+                map.addOverlay(ply);  //添加覆盖物
+                pointArray = pointArray.concat(ply.getPath());
+            }
+            map.setViewport(pointArray);    //调整视野
+        });
+    }
+
+    let countyPoints = [
+        [110.256989, 21.384319], //遂溪县
+        [110.103211, 20.920149], //雷州市
+        [110.292618, 21.616305], //廉江市
+        [110.785833, 21.446892], //吴川市
+        [110.182715, 20.332622], //徐闻县
+        [110.40408, 21.198887], //霞山区
+        [110.372446, 21.271905], //赤坎区
+        [110.339834, 21.27008], //麻章区
+        [110.462047, 21.250159] //坡头区
+    ];
+
+    function getCountyMarker() {
+        map.clearOverlays();
+        for (let i = 0; i < countyPoints.length; i++) {
+            let point = new BMap.Point(countyPoints[i][0], countyPoints[i][1]);
+            let marker = new BMap.Marker(point); //创建标注
+            map.addOverlay(marker); //将标注添加到地图上
+            marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动
+        }
+    }
+
+    //window.onload = loadJScript;  //异步加载地图
+</script>
+<script type="text/javascript" class="modal_js">
+    $(document).on('opening', '.remodal', function () {
+        console.log('Modal is opening');
+        $(".remodal").on("mousewheel DOMMouseScroll", function (e) {
+            /*var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) ||  // chrome & ie
+                (e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1));              // firefox
+            if (delta > 0) {
+                // 向上滚
+                console.log("wheelup");
+            } else if (delta < 0) {
+                // 向下滚
+                console.log("wheeldown");
+            }*/
+            return false; //屏蔽掉滚轮事件
+        });
+    });
+
+    mapModalTitle = ["湛江海湾大桥", "湖光岩地质公园", "特呈岛"];
+    mapModalPoint = [[110.431274, 21.256722], //湛江海湾大桥
+        [110.291934, 21.150217], //湖光岩地质公园
+        [110.439508, 21.163333]]; //特呈岛
+
+    function openMapModal(index) {
+        let inst = $('[data-remodal-id=modal-map]').remodal();
+        let point = new BMap.Point(mapModalPoint[index][0], mapModalPoint[index][1]);
+        let move_point = new BMap.Point(mapModalPoint[index][0] - 0.025, mapModalPoint[index][1] + 0.012);
+        map_modal.centerAndZoom(move_point, 15);
+
+        map_modal.clearOverlays(); //先清除所有的标记
+        let marker = new BMap.Marker(point); //创建标注
+        map_modal.addOverlay(marker); //将标注添加到地图上
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动
+
+        $(".modal-map-h").text(mapModalTitle[index]);
+        $(".map-remodal-more").attr("onclick", "window.open(\'" + "http://map.baidu.com/?latlng=" + mapModalPoint[index][1] + "," +
+            mapModalPoint[index][0] + "\')");
+        inst.open();
+    }
+</script>
+
+<!---天气js-->
+<script src="js/weather.js"></script>
+
+<!---湛江风俗查看详情按钮事件处理-->
+<script>
+    let culture_detailsSite = ['details/culture-renlongwu-details.html', 'details/culture-tanwu-details.html',
+    'details/culture-piaose-details.html', 'details/culture-xingshi-details.html'];
+
+    function showCultureDetails() {
+        let index = parseInt($("#btn .active").text());
+        window.open(culture_detailsSite[index - 1]);
+    }
+</script>

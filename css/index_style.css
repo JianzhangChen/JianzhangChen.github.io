@@ -1,0 +1,402 @@
+.index-logo {
+    display: inline;
+    max-height: 40px;
+    max-width: 80px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.index-logo img {
+    height: 100%;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+#menu {
+    vertical-align: middle;
+    height: 30px;
+}
+
+#section0,
+#section1,
+#section2,
+#section3,
+#section4,
+#slide1,
+#slide2,
+#slide3,
+#slide4,
+#slide5,
+#slide6,
+#slide7,
+#slide8,
+#slide9,
+#slide10,
+#slide11,
+#slide12,
+#slide13 {
+    -webkit-background-size: cover;
+    background-size: cover;
+    #background-attachment: fixed;
+}
+
+#slide12 {
+    background-image: url("../img/section0-bg1.jpg");
+    background-position-y: bottom;
+    background-size: 2000px;
+}
+
+#slide2 {
+    background-image: url('../img/kaobeike3.jpg');
+}
+
+#slide3 {
+    background-image: url("../img/baiqieji2.jpeg");
+}
+
+#slide4 {
+    background-image: url("../img/shaozhu2.jpg");
+}
+
+#slide7 {
+    background-image: url("../img/zhanjiang-haiwandaqiao.jpg");
+}
+
+#slide8 {
+    background-image: url("../img/zhanjiang-huguangyan.jpg");
+}
+
+#slide9 {
+    background-image: url("../img/zhanjiang-techengdao.jpg");
+}
+
+#slide10 {
+    background-image: url("../img/cele-bg3.jpg");
+}
+
+#slide11 {
+    background-image: url("../img/1-bg.jpg");
+}
+
+#slide13 {
+    background: #ffffff;
+}
+
+#section4 {
+    background-color: #eee;
+}
+
+.myContent {
+    font-size: 10px;
+}
+
+.myContent p {
+    margin-top: 5px;
+}
+
+.sight-content .myContent {
+    position: absolute;
+    bottom: 0;
+    margin-left: 0px;
+    text-align: left;
+    color: white;
+    height: auto;
+    margin-bottom: 50px;
+    padding: 5px 5px 5px 80px;
+    background-color: #444444;
+    opacity: 0.7;
+}
+
+.sight-content .myContent h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.zhanjiang-brief{
+    float: left;
+    text-align: left;
+    position: absolute !important; /***/
+    left: 75%;
+    padding: 20px;
+    max-width: 40%;
+    top: 0;
+    bottom: 0;
+    background: #f7f7f7;
+    display: inline;
+}
+
+.zhanjiang-brief h1 {
+    font-size: 30px;
+}
+
+.zhanjiang-brief p {
+    font-size: 20px;
+    margin-top: 10px;
+    line-height: 30px;
+    text-indent: 2em;
+}
+
+
+.sight-content .myContent p {
+    font-size: 15px;
+}
+
+.line {
+    display: block;
+    background: #fff;
+    width: 50px;
+    height: 1px;
+    left: 50%;
+    position: relative;
+    margin-top: 50px;
+    margin-left: -25px; /*强行居中*/
+}
+
+.humanity-content {
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 400;
+}
+
+.humanity-content h1 {
+    font-size: 50px;
+    color: #FFF;
+}
+
+.celebrity-grp {
+    display: flex;
+    margin-top: 70px;
+    margin-left: 17%;
+    margin-right: 17%;
+    transition-delay: 1s;
+}
+
+.celebrity-profile {
+    font-size: 14px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cele-li {
+    display: inline;
+    flex: 1;
+}
+
+.cele-grp {
+    text-align: center;
+    overflow: hidden;
+}
+
+.celebrity-pic img {
+    height: 150px;
+    border-radius: 8px;
+}
+
+.celebrity-pic {
+    position: relative;
+    overflow: hidden;
+    /**!important 只有固定了width才能用margin auto**/
+    margin: auto;
+    width: 150px;
+    height: 150px;
+}
+
+.celebrity-pic:after{
+    position:absolute;
+    left: 0;
+    top:0;
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: attr(data-text);
+    transition:all 1s ease;
+    transform: translateY(-100%);
+    color: #FFF;
+    white-space: pre;
+
+    /**伪元素内容配置**/
+    padding-top: 40%;
+    font-size: 20px;
+}
+.celebrity-pic:hover:after{
+    transform: translateY(0);
+}
+.celebrity-details {
+    max-width: 140px;
+    margin: auto;
+}
+
+.box-item-brief {
+    background: #FFFFFF;
+    opacity: 0.8;
+    margin-left: 0px;
+    color: #000;
+    font-size: 20px;
+    padding: 5px;
+    line-height: 30px;
+}
+
+#mark {
+    width: 100%;
+    overflow: hidden;
+}
+
+#screen {
+    position: relative;
+}
+
+.section0-content {
+    float: left;
+    position: absolute;
+    padding-top: 300px;
+    padding-left: 100px;
+    padding-right: 50px;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgb(43,93,99);
+    opacity: 0.6;
+    color: #000;
+}
+
+.section0-brief {
+    margin-top: 10px;
+}
+
+.section0-content p {
+    font-size: 25px;
+}
+
+
+#allmap {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.a-button {
+    font-size: 14px;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 61px;
+    text-decoration: none;
+    padding: 10px 25px;
+    margin-right: 15px;
+    display: inline-block !important;
+}
+
+.zhanjiang-card-button,
+.zhanjiang-overlook-button,
+.zhanjiang-details-button {
+    margin-top: 10px;
+}
+
+.modal-h {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.modal-img {
+    width: 100%;
+    flex: 1;
+}
+
+.modal-img img {
+    width: 300px;
+    overflow: hidden;
+}
+
+.modal-content {
+    overflow: hidden;
+    display: flex;
+    font-size: 10px;
+    text-align: left;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.modal-detail {
+    flex: 1;
+}
+
+.map-button {
+    padding: 5px 25px;
+    margin-top: -5px;
+    margin-left: 15px;
+}
+
+.info-button {
+    padding: 5px 25px;
+    margin-top: -5px;
+    margin-left: 0;
+}
+
+#allmap-modal {
+    height: 350px !important; /**真的拉不高**/
+}
+
+.modal-map-h {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modal-cele-detail {
+    font-size: 7px;
+    text-indent: 2em;
+}
+
+.box-more-info-btn {
+    display: inline;
+    margin-top: -2px;
+    margin-left: 20px;
+    padding: 5px 20px;
+}
+
+.user-info {
+    display: inline;
+}
+
+.weather-info {
+    display: inline;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    color: #000000;
+}
+
+.weather-info p {
+    display: inline;
+    font-size: 18px;
+}
+
+.remodal button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.section-footer {
+    color: #000;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #eee;
+}
+
+.section-footer p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.section-footer a{
+    color: #000;
+}
+
+.section-footer a:link,
+.section-footer a:visited,
+.section-footer a:hover,
+.section-footer a:active {
+    color:  #000;
+}
